@@ -1,0 +1,8 @@
+-> AutoBoxing
+      Converting Primitive types to Non-Primitive automatically 
+      ex: ArrayList<Integer> ans=new ArrayList<>();
+          ans.add(3); /*AutoBoxing*/
+
+-> UnBoxing
+      Converting Non-Primitive types to Primitive 
+      ex: int a= ans.get(2); /* UnBoxing*/
