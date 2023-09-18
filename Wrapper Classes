@@ -1,1 +1,10 @@
+-> Definition
+      Wrapper Classes provide a bridge between primitive data types and objects, allowing for more flexibility,
+      additional functionality, and better compatibility in various programming scenarios.
 
+
+-> Why do we use Wrapper Classes?
+      Consider we want to store "Marks of Students" in Linked List but it only accepts objects. 
+      List<int> is not possible as LinkedList doesn't store primitive data types
+      One of the primary reasons for using wrapper classes is to convert primitive data types into objects. 
+      Using wrapper classes like Integer, you can convert primitive int values into objects that can be stored in collections.
