@@ -1,0 +1,43 @@
+1.  OOPS concepts
+    1. Abstraction
+    2.Encapsulation
+    3. Access Modifiers
+    4. Call By Value and Call By Reference
+    5. Constructor
+    6. Types of Constructor
+    7. GIT commands
+    8. Deep copy vs Shallow Copy
+    9. Super, This, Static, final keywords
+    10. Interface
+    11. Inheritance
+    12. Threads
+    13. Executors and Callables
+    14. Mutex
+    15. Semaphores
+    16. Critical Section
+    17. Premption
+    18. Wrapper Classes
+    19. Auto Boxing
+    20. Object class
+    21. Generics
+    22. Collections
+    23. String Immutability
+    24. String Pool
+    24. Concurent Datastructures
+2. LLD
+  1. S.O.L.I.D principles
+  2. Singleton 
+  3. Prototype
+  4. Factory 
+  5. Builder
+  6. Adapter and Facade
+  7. Decorator and FlyWeight
+  8. Behavioural (.......)
+3. Advace Java Concepts
+
+4. Practical Implementation LLD
+  1. Design Pen
+  2. Parking Lot 
+  3. Tic Toe
+  4. Book My Show
+  5. Split wise
