@@ -61,4 +61,5 @@
           return max;
       }
 
+note: Generics doesn't work on Primitive tyoes
 
