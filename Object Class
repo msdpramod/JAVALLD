@@ -1,0 +1,14 @@
+-> Defination: 
+    It is root class or Parent class of all classes in java
+    It is present inside " Java.lang.package. "
+    All classes implicitly or explicitly inherit Object class.
+
+-> Methods
+    equals(Object obj): Compares the current object with another object for equality.
+    hashCode(): Returns a hash code value for the object, which is used in data structures like hash tables.
+    toString(): Returns a string representation of the object.
+    getClass(): Returns the runtime class of the object.
+    clone(): Creates and returns a copy of the object.
+    finalize(): Objects created from classes inherit the finalize method from the Object class. This method can be overridden 
+    to define custom cleanup actions before an object is garbage collected.
+    wait(), notify(), and notifyAll(): Used for synchronization and inter-thread 
