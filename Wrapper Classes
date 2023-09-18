@@ -9,5 +9,11 @@
       One of the primary reasons for using wrapper classes is to convert primitive data types into objects. 
       Using wrapper classes like Integer, you can convert primitive int values into objects that can be stored in collections.
 
+-> Types 
+      Integer, Boolean, Long, Double, Float
+
 -> Usage
+      Wrapper Classes are used in Collections
       ArrayList<Integer> list = new ArrayList<>();
+
+note: Primitive Data Types are used to store in the stack and Non-Primitive Data types are stored in Heap.
