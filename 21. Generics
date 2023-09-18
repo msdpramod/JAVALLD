@@ -1,0 +1,37 @@
+-> Definition
+      Generics allow you to create classes, methods, and data structures that can work with various data types while 
+      providing type safety at compile time. 
+      They enable you to write more reusable and flexible code by parameterizing your code with types. 
+
+-> Type Parameterization:
+        Generics introduce type parameters (also called type variables) to classes, methods, and data structures.
+        These type parameters represent placeholder types that are replaced with actual types when you use the generic construct. 
+        For example, in Java, you might declare a generic class like this:
+  
+        public class Box<T> {
+            private T value;
+        
+            public Box(T value) {
+                this.value = value;
+            }
+        
+            public T getValue() {
+                return value;
+            }
+        }
+
+-> Method Generics: 
+      You can apply generics to methods as well, allowing methods to accept and return generic types.
+      This is particularly useful when you want to write reusable algorithms that work with different types of data.
+
+      public <T> T findMax(List<T> list) {
+          T max = list.get(0);
+          for (T item: list) {
+              if (item.compareTo(max) > 0) {
+                  max = item;
+              }
+          }
+          return max;
+      }
+
+
