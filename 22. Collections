@@ -1,1 +1,46 @@
+-> Definition
+      A collection is a data structure that is used to store and manage a group of related objects or data items.
 
+-> Types
+      Lists: 
+        Lists are dynamic collections that can grow or shrink in size as needed. They allow you to store elements of various data types. 
+        Lists are commonly used when you need a flexible collection with easy insertion and removal of elements.
+  
+        ArrayList: A dynamic array-based list with fast random access and dynamic resizing.
+        LinkedList: A list implemented as a linked data structure, which provides fast insertions and deletions but slower random access.
+
+        List<String> names = new ArrayList<>();
+        names.add("Alice");
+        names.add("Bob");
+
+    Sets:
+      Sets are collections that store unique elements, meaning no duplicates are allowed. They are useful when you need to maintain a distinct collection of items.
+      
+      HashSet: A set that uses a hash table for storage, providing fast access and no specific order.
+      TreeSet: A set that uses a self-balancing binary search tree, maintaining elements in sorted order.
+
+    Set<Integer> numbers = new HashSet<>();
+    numbers.add(1);
+    numbers.add(2);
+
+  Maps: 
+    Maps are collections that store key-value pairs, allowing you to associate values with unique keys. They are useful for implementing dictionaries, caches, and lookup tables.
+    
+    HashMap: A map that uses a hash table for storage, providing fast key-value retrieval.
+    TreeMap: A map that uses a self-balancing binary search tree, maintaining keys in sorted order.
+
+  Queues: 
+    Queues are collections that follow a first-in-first-out (FIFO) order. They are commonly used for managing tasks, scheduling, and implementing algorithms like breadth-first search.
+
+    LinkedList (as a queue): You can use a linked list as a queue by adding elements at one end (enqueue) and removing elements from the other end (dequeue).
+
+    Queue<String> queue = new LinkedList<>();
+    queue.offer("Task1");
+    queue.offer("Task2");
+
+  Stacks: 
+    Stacks are collections that follow a last-in-first-out (LIFO) order. They are useful for implementing algorithms like depth-first search and maintaining state information.
+
+    Stack<String> stack = new Stack<>();
+    stack.push("Step1");
+    stack.push("Step2");
