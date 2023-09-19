@@ -1,0 +1,25 @@
+-> Defination
+
+      The "String pool" (also known as the "string constant pool") is a special area in the memory heap where string literals are stored. 
+      The primary purpose of the string pool is to optimize memory usage and improve performance
+      by reusing common string values instead of creating new instances for each identical string.
+
+-> Example
+  
+      String str1 = "Hello"; // Creates a string literal in the pool
+      String str2 = "Hello"; // Reuses the existing string from the pool
+      
+      System.out.println(str1 == str2); // Output: true (both references point to the same string)
+      
+      String str3 = new String("Hello"); // Creates a new string object (not in the pool)
+      String str4 = str3.intern(); // Interns the string to the pool
+      
+      System.out.println(str1 == str3); // Output: false (different objects)
+      System.out.println(str1 == str4); // Output: true (after interning, both references point to the same string)
+
+
+      In this example, str1 and str2 both reference the same string in the pool, while str3 refers to a new string object.
+      After interning str3, str4 also references the same string in the pool.
+
+      Understanding the String pool is important in Java, as it can impact memory usage and the behavior of string comparisons. 
+      Developers often use the equals() method to compare the content of strings, rather than the == operator, which compares references.
