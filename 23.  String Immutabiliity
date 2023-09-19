@@ -1,2 +1,27 @@
 -> Immutable :
         The term "immutable" refers to an object or data structure whose state cannot be modified after it is created.
+
+-> Creation: 
+       public static void main(String[] args) {
+        // Creating string objects
+        String str1 = "Hello";
+        String str2 = "World";
+
+        // Concatenating strings creates a new string
+        String combined = str1 + ", " + str2;
+
+        // Original strings remain unchanged
+        System.out.println("str1: " + str1); // Output: "Hello"
+        System.out.println("str2: " + str2); // Output: "World"
+
+        // The result of concatenation is a new string
+        System.out.println("combined: " + combined); // Output: "Hello, World"
+
+        // Creating a substring also creates a new string
+        String substring = combined.substring(0, 5);
+        System.out.println("substring: " + substring); // Output: "Hello"
+        }
+
+        We create two string objects, str1 and str2.
+        Concatenating str1 and str2 with the + operator creates a new string object combined. The original strings str1 and str2 remain unchanged.
+        Creating a substring using substring method also creates a new string object substring.
