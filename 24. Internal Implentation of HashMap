@@ -1,0 +1,68 @@
+public class ImplementationOfHashMap<K,V> {
+
+//this declares a generic class named ImplementationOfHashMap with two type parameters: K & V. K represents the key and V represents the value. 
+
+    private static final int size = 1000;
+    private LinkedList<Entries>[] buckets;
+
+    public ImplementationOfHashMap() {
+        buckets = new LinkedList[size];
+    }
+
+//SIZE is a constant that determines the size of the underlying array used to store buckets. buckets is an array of LinkedList<Entry> where each element in the array represents a "bucket" that can hold key-value pairs.
+
+    public void put(K key, V value) {
+        int index = key.hashCode() % size;
+        if (buckets[index] == null) {
+            buckets[index] = new LinkedList<>();
+        }
+
+//The constructor initializes the buckets array with a specified size (in this case, 1000).
+
+        LinkedList<Entries> bucket = buckets[index];
+        for (Entries entry : bucket) {
+            if (entry.key.equals(key)) {
+                entry.value = value;
+                return;
+            }
+        }
+
+        bucket.add(new Entries(key, value));
+    }
+//The put method allows you to add a key-value pair to the hash map.
+It calculates the index in the buckets array using the hashCode of the key.If the bucket at that index is null, it initializes it with a new LinkedList. It then checks if the key already exists in the bucket and updates the value if it does, or adds a new key-value pair if it doesn't.
+
+    public V get(K key) {
+        int index = key.hashCode() % size;
+        LinkedList<Entries> bucket = buckets[index];
+        if (bucket != null) {
+            for (Entries entry : bucket) {
+                if (entry.key.equals(key)) {
+                    return entry.value;
+                }
+            }
+        }
+        return null;
+    }
+//he get method allows you to retrieve the value associated with a given key. It calculates the index in the buckets array using the hashCode of the key and searches for the key in the corresponding bucket.
+
+    public void remove(K key) {
+        int index = key.hashCode() % size;
+        LinkedList<Entries> bucket = buckets[index];
+        if (bucket != null) {
+            bucket.removeIf(entry -> entry.key.equals(key));
+        }
+    }
+
+//The remove method allows you to remove a key-value pair based on the key. It calculates the index in the buckets array using the hashCode of the key and removes the entry from the corresponding bucket.
+
+    private class Entries {
+        K key;
+        V value;
+
+        Entries(K key, V value) {
+            this.key = key;
+            this.value = value;
+        }
+    }
+}
