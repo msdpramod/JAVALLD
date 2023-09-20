@@ -1,0 +1,43 @@
+-> Definition 
+
+      Concurrent Ds are thread-safe
+  
+-> Types
+      1. Concurrent HashMap
+      2. Copy Write ArrayList
+      3. Concurrent Linked Queues
+      4. Blocked Queues
+      5. Count Down Latch
+
+->Concurrent HahMap
+      Thread-Safe: ConcurrentHashMap is designed to support concurrent access by multiple threads without the need for external synchronization. 
+      This makes it suitable for scenarios where you have multiple threads reading and writing to a shared map.
+      Iterators: Iterators over a ConcurrentHashMap are weakly consistent, which means they provide a snapshot of the map at the time of their creation. 
+      They may not reflect the most recent updates made by other threads during iteration but do not throw ConcurrentModificationException.
+
+      import java.util.concurrent.ConcurrentHashMap;
+      import java.util.Map;
+      
+      public class ConcurrentHashMapExample {
+          public static void main(String[] args) {
+              ConcurrentHashMap<Integer, String> concurrentMap = new ConcurrentHashMap<>();
+      
+              concurrentMap.put(1, "One");
+              concurrentMap.put(2, "Two");
+              concurrentMap.put(3, "Three");
+      
+              // Concurrently access the map
+              Runnable task = () -> {
+                  String value = concurrentMap.get(2);
+                  System.out.println("Thread " + Thread.currentThread().getId() + " - Value: " + value);
+              };
+      
+              Thread thread1 = new Thread(task);
+              Thread thread2 = new Thread(task);
+      
+              thread1.start();
+              thread2.start();
+          }
+      }
+
+      
