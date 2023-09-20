@@ -1,0 +1,62 @@
+->Definition
+    The Singleton Pattern is a design pattern that restricts the instantiation of a class to a single instance and provides 
+    a global point of access to that instance. 
+    This pattern ensures that there is only one instance of the class in the application and provides a way to access that instance
+    from any part of the code.
+
+->Implementation
+    1. Make the Constructor as private.
+    2. Create a public function to access the constructor.
+    3. Since we don't have an object, make the method static.
+
+-> Code 1: 
+    public class Singleton {
+        // Private static variable to hold the single instance of the class
+        private static Singleton instance;
+    
+        // Private constructor to prevent instantiation from other classes
+        private Singleton() {
+            // Initialization code, if needed
+        }
+    
+        // Public static method to get the instance of the Singleton class
+        public static Singleton getInstance() {
+            if (instance == null) {
+                instance = new Singleton();
+            }
+            return instance;
+        }
+    
+        // Other methods and attributes can be added here
+    }
+
+-> Code2 :
+    To create a Thread-safe Singleton and make the connection work 3 times
+
+    public class Singleton {
+    private int counter;
+    private static Singleton instance;
+    private Singleton(){
+        counter=0;
+    }
+    public static Singleton getInstance(){
+        if (instance == null) {
+            synchronized (Singleton.class) {
+                if (instance == null) {
+                    instance = new Singleton();
+                }
+            }
+        }
+        return instance;
+    }
+    public void makeConnection(){
+        if(counter<3){
+            counter++;
+            System.out.println("true");
+        }
+        else{
+            System.out.println("false");
+        }
+    }
+
+    
