@@ -1,4 +1,4 @@
--> Defination
+-> Definition
 
       The "String pool" (also known as the "string constant pool") is a special area in the memory heap where string literals are stored. 
       The primary purpose of the string pool is to optimize memory usage and improve performance
@@ -23,3 +23,6 @@
 
       Understanding the String pool is important in Java, as it can impact memory usage and the behavior of string comparisons. 
       Developers often use the equals() method to compare the content of strings, rather than the == operator, which compares references.
+
+-> String Buffer and String Builder are both mutable strings. The only difference between them is String Builder is not thread-safe,
+   while String Buffer is Thread-safe. 
