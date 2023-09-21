@@ -1,4 +1,12 @@
 -> Definition
       Software entities (classes, modules, functions, etc.) should be open for extension but closed for modification.
 
+Open Closed says " Hey hi I'm open to extending like FlyingBird | SwimingBird in Single Responsibility Principle but 
+I don't to modify myself".
+
+Lets understand from Single Responsibility Principle there are two behaviors if i want to add one more behavior without
+modifying code, Let's see Swiming bird
+
+
+
 
