@@ -1,12 +1,12 @@
 -> Definition
       Every code unit whether it is Class | Package | Method should have one responsibility. 
-      In other words there should one reason to change.
+      In other words, there should be one reason to change.
 
-      In solid principles file You observed that bird consists of too many if/else conditions 
-      this conditions if it is business logic like calculations then SRP doesn't apply such 
-      conditions. But Bird class can have different set of behaviour like fly | run | sing etc
-      As different birds have different set of behaviours it is really difficult SE to update and
-      debug the code. So make these behaviours in different class and extends to Bird class.
+      In the solid principles file, You observed that the Bird class consists of too many if/else  
+      conditions if it is business logic like calculations then SRP doesn't apply such 
+      conditions. But Bird class can have a different set of behaviors like fly | run | sing etc
+      As different birds have different sets of behaviors it is really difficult for SE to update and
+      debug the code. So these behaviors are in a different class and extend to Bird class.
 
 A better approach is to follow the SRP by separating these responsibilities into distinct.
 
