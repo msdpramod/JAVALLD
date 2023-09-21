@@ -1,3 +1,9 @@
 A set of guidelines that helps Software engineers to design software systems.
 
 S.O.L.I.D -> This is an acronym for 
+
+-> Single Responsible Principle
+-> Open Close Principle
+-> Liskov Substitution
+-> Interface Segregation
+-> Dependency Inversion 
