@@ -1,6 +1,8 @@
 ->Definition
       The principle suggests creating small focused interfaces where a specific set of
-      behaviors or methods are added. It let us achieve the loose coupling to class.
+      behaviors or methods are added. It let us achieve the loose coupling to class. 
+      Ideally, it should have only one method in the interface. An Interface consists of one method
+      called a Functional Interface. It is used in Lamda expression, we will talk about it later.
 
       The main aim of ISP is client shouldn't depend on interfaces where it has many methods
       (monolithic interfaces). The client should always depend on relevant methods for their particular
@@ -8,6 +10,7 @@
 
 ->Example
       From the Open-Closed Principle, We created a class FlyableBird and extended it to the Bird class.
+      As we are creating too many classes for each behavior it causes class explosion so to avoid that 
       we move methods to the interface.  
 
       //Flyable Interface
