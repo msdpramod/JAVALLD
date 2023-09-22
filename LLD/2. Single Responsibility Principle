@@ -6,7 +6,7 @@
       conditions if it is business logic like calculations then SRP doesn't apply such 
       conditions. But Bird class can have a different set of behaviors like fly | run | sing etc
       As different birds have different sets of behaviors it is really difficult for SE to update and
-      debug the code. So to overcome if/else statements, we make these behaviors a different class and extend to Bird class.
+      debug the code. So to overcome if/else statements, we make each behavior as a different class and extend to Bird class.
 
 A better approach is to follow the SRP by separating these responsibilities into distinct.
 
