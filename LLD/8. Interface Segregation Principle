@@ -1,7 +1,0 @@
-->Definition
-      The principle suggests creating small focused interfaces where a specific set of
-      behaviors or methods are added. It let us achieve the loose coupling to class.
-
-      The main aim of ISP is client shouldn't depend on interfaces where it has many methods
-      (monolithic interfaces). The client should always depend on relevant methods to their particular
-      needs.
