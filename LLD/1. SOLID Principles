@@ -26,8 +26,9 @@ Storing bird attributes (name, color, fly).
 Displaying bird information.
 Managing bird flying behavior.
 Managing bird singing behavior.
-This class violates the SRP because it has more than one reason to change. If you need to modify the way birds sing 
-or add new attributes specific to certain bird species, you would need to change this class, potentially affecting unrelated parts of your code.
+
+If you need to modify the way birds sing or add new attributes specific to certain bird species,
+You would need to change this class, potentially affecting unrelated parts of your code.
 
 public class BirdWithoutSRP {
         private String name;
@@ -46,17 +47,22 @@ public class BirdWithoutSRP {
         }
 
         public void fly() {
-            if (canFly) {
                 System.out.println(name + " is flying.");
-            } else {
-                System.out.println(name + " cannot fly.");
-            }
         }
 
         public void sing() {
-            System.out.println(name + " is singing.");
+            if(name=="Crow"){
+                System.out.println("Crow is cawing");
+            }
+            else if(name=="hen"){
+                System.out.println("Hen is Coocurkooing");
+            }
+            else if (name== " sparrow"){
+                System.out.println("sparrow is chiching");
+            }
         }
 
-}
+        }
 
-
+->Note: This class violates the SRP because it has more than one reason to change. You didn't understand what it meant right? Okay, let me explain
+        in Sing Method as there are multiple if/else conditions it violates SRP.
