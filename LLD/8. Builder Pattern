@@ -1,1 +1,189 @@
+-> Requirements
+        Consider Student has a lot of attributes
+        class Student{
+            String Name;
+            int age;
+            String batchName;
+            int id;
+            int psp;
+            String email;
+            int gradYear;
+            int phoneNumber;
+        }
+
+        we can set attribute values by setter methods
+        Student s= new Student();
+        s.setName("pramod);
+        s.setage(26);
+
+        * consider age  stored as negative or gradYear stored as 2025 or phoneNumber stored as 8 digit number, to avoid
+        * We want to validate the object, attributes of a class before creating the object.
+
+        Validations for Student
+        1. No Student should have grad year more than 22
+        2. The phone number should be valid
+        3. age >= 22
+
+        * No Student object should be created before the validations are true.
+
+        * If we have too many attributes constructor will end up creating too many parameters which becomes difficult to
+          validate code.
+
+        * If some attributes are null then will end up creating too many constructors with different combinations of
+          parameters.
+        
+        public class StudentBuilder {
+            public String name;
+            public int yeo;
+            public String batchName;
+            public int gradeYear;
+            public int psp;
+            public int id;
+        
+            public StudentBuilder(HelperBuilder builder) {
+                this.name = builder.name;
+                this.yeo = builder.yeo;
+                this.batchName = builder.batchName;
+                this.gradeYear = builder.gradeYear;
+                this.psp = builder.psp;
+                this.id = builder.id;
+            }
+        }
+
+        public class HelperBuilder {
+            public String name;
+            public int yeo;
+            public String batchName;
+            public int gradeYear;
+            public int psp;
+            public int id;
+            public HelperBuilder setName(String name) {
+                this.name = name;
+                return this;
+            }
+        
+            public HelperBuilder setYeo(int yeo) {
+                this.yeo = yeo;
+                return this;
+            }
+        
+            public HelperBuilder setBatchName(String batchName) {
+                this.batchName = batchName;
+                return this;
+            }
+        
+            public HelperBuilder setGradeYear(int gradeYear) {
+                this.gradeYear = gradeYear;
+                return this;
+            }
+        
+            public HelperBuilder setPsp(int psp) {
+                this.psp = psp;
+                return this;
+            }
+        
+            public HelperBuilder setId(int id) {
+                this.id = id;
+                return this;
+            }
+            public void validate(){
+                if(name==null){
+                    throw new nameException("name shouldn't be null");
+                }
+                else if(yeo>1){
+                    throw new yeoException(" Atleast one year experience needed");
+                }
+                else if(gradeYear <2022){
+                    throw new gradeyearException(" it should be less than current year");
+                }
+            }
+            public StudentBuilder build(){
+                this.validate();
+                StudentBuilder s= new StudentBuilder(this);
+                return s;
+        
+            }
+        }
+        
+        public class gradeyearException extends RuntimeException{
+            public gradeyearException() {
+                super();
+            }
+        
+            public gradeyearException(String message) {
+                super(message);
+            }
+        
+            public gradeyearException(String message, Throwable cause) {
+                super(message, cause);
+            }
+        
+            public gradeyearException(Throwable cause) {
+                super(cause);
+            }
+        
+            protected gradeyearException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+                super(message, cause, enableSuppression, writableStackTrace);
+            }
+        }
+        
+        public class nameException extends RuntimeException{
+            public nameException() {
+                super();
+            }
+        
+            public nameException(String message) {
+                super(message);
+            }
+        
+            public nameException(String message, Throwable cause) {
+                super(message, cause);
+            }
+        
+            public nameException(Throwable cause) {
+                super(cause);
+            }
+        
+            protected nameException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+                super(message, cause, enableSuppression, writableStackTrace);
+            }
+        }
+        
+        package BuilderPattern;
+        
+        public class yeoException extends RuntimeException{
+            public yeoException() {
+                super();
+            }
+        
+            public yeoException(String message) {
+                super(message);
+            }
+        
+            public yeoException(String message, Throwable cause) {
+                super(message, cause);
+            }
+        
+            public yeoException(Throwable cause) {
+                super(cause);
+            }
+        
+            protected yeoException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+                super(message, cause, enableSuppression, writableStackTrace);
+            }
+        }
+        
+        public class ClientBuilder {
+            public static void main(String[] args) {
+                StudentBuilder s = new HelperBuilder()
+                        .setId(1)
+                        .setGradeYear(2013)
+                        .setName("sid")
+                        .setYeo(10)
+                        .setPsp(97)
+                        .build() ;
+            }
+        }
+
+        
 
