@@ -78,7 +78,36 @@
                 }
        }
 
-       Here we are violating SRP, and OCP principles as it in Student class we are creating more than one change and it is not modification.
+       Here we are violating SRP, and OCP principles as in the Student class we are creating more than one change and it is not modification.
+
+->Version 5:
+        class Client{
+            public static void main(String args[]){
+                Student s= new Student();
+                if(s instanceOf Student){
+                    Student copy= new Student();
+                }
+                else{
+                    Student copy= new IntegllientStudent();
+                }
+            }
+        }
+       Here we are violating SRP, and OCP principles as in Student class we are creating more than
+       one change and it is not modification.
+       If the client wants to create an object the logic of copy shouldn't be present in the client.
+
+->version 6: Copy method
+
+            class Client{
+                public static void main(String args[]){
+                    Student s= new Student();
+                    Student copy=s.copy();
+                }
+            }
+
+            Even though it follows solid principles and is loosely coupled we need to make sure all the all child
+            classes of student class should definitely override the copy method
+
 
 
 
