@@ -1,2 +1,48 @@
--> Definition
-      
+-> Requirements
+        Given an Object we have to create multiple deep copies ( creating a new object with same attributes as the original)
+
+ -> Version 1:
+    class Client{
+        public static void main(String args[]){
+            Student s= new Student():
+            Student copy= s; ---->( It doesn't work as we are copy reference which is the address)
+        }
+     }
+
+  -> Version 2:
+    class Client{
+            public static void main(String args[]){
+                Student s= new Student();
+                Student copy= new Student();
+                copy.id= s.id;
+                copy.name= s.name;
+                copy.batch= copy.batch;
+            }
+         }
+    }
+
+    Cons: 1: Too lengthy code.
+          2: The client needs to know implementation details like attributes of the Student class.
+          3. Student classes might have some private attributes so client classes cannot access them.
+          4. class  Student{
+                int id;
+                String name;
+                String batch;
+                int roll;
+             }
+             
+             class IntelligentStudent extends Student{
+                int iq;
+             }
+             
+             class client{
+                 public static void main(String args[]){
+                    Student s= new Student();
+                            or
+                    Student s= new IntelligentStudent();
+                 }
+             }    
+          Either of the classes can have full properties.
+    
+    -> can we do it with a copy constructor?
+        
