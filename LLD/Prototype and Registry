@@ -1,5 +1,5 @@
 -> Requirements
-        Given an Object, we have to create multiple deep copies ( creating a new object with the same attributes as the original)
+        Given an Object, we have to create multiple deep copies ( creating a new object with the same attributes as the original )
 
 -> Version 1:
     class Client{
@@ -45,4 +45,43 @@
           Either of the classes can have full properties.
     
 -> can we do it with a copy constructor?
+        class  Student{
+           int id;
+           String name;
+           String batch;
+           int roll;
+           public Student (int id, String name, String batch, int roll){
+                this.id=id;
+                this.name=name;
+                this.batch=batch;
+                this.roll=roll;
+           }
+       }
+       class IntelligentStudent extends Student{
+            public IntelligentStudent( IntelligentStudent it){
+                Super(it);
+                this.iq= it.iq;
+       }
+
+       Even here we can't get full properties
+
+       Let's modify the Client code
+
+       class Client{
+            public static void main(String args[]){
+                Student s= new Student();
+                if(s instanceOf Student){
+                    Student copy= new Student();
+                }
+                else{
+                    Student copy= new IntegllientStudent();
+                }
+       }
+
+       Here we are violating SRP, and OCP principles as it in Student class we are creating more than one change and it is not modification.
+
+
+
+
+
         
