@@ -17,10 +17,10 @@
         s.setage(26);
 
         * consider age  stored as negative or gradYear stored as 2025 or phoneNumber stored as 8 digit number, to avoid
-        * We want to validate the object, attributes of a class before creating the object.
+        * We want to validate the object, and attributes of a class before creating the object.
 
         Validations for Student
-        1. No Student should have grad year more than 22
+        1. No Student should have gradYear more than 22
         2. The phone number should be valid
         3. age >= 22
 
