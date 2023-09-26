@@ -1,7 +1,7 @@
 -> Requirements
-        Given an Object we have to create multiple deep copies ( creating a new object with same attributes as the original)
+        Given an Object, we have to create multiple deep copies ( creating a new object with the same attributes as the original)
 
- -> Version 1:
+-> Version 1:
     class Client{
         public static void main(String args[]){
             Student s= new Student():
@@ -9,7 +9,7 @@
         }
      }
 
-  -> Version 2:
+-> Version 2:
     class Client{
             public static void main(String args[]){
                 Student s= new Student();
@@ -44,5 +44,5 @@
              }    
           Either of the classes can have full properties.
     
-    -> can we do it with a copy constructor?
+-> can we do it with a copy constructor?
         
