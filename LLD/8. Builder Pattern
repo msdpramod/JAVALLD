@@ -16,11 +16,11 @@
         s.setName("pramod);
         s.setage(26);
 
-        * consider age  stored as negative or gradYear stored as 2025 or phoneNumber stored as 8 digit number, to avoid
+        * consider age stored as negative or gradYear stored as 2025 or phoneNumber stored as 8 digit number, to avoid
         * We want to validate the object, and attributes of a class before creating the object.
 
         Validations for Student
-        1. No Student should have gradYear more than 22
+        1. No Student should have a year more than 22
         2. The phone number should be valid
         3. age >= 22
 
@@ -31,61 +31,84 @@
 
         * If some attributes are null then will end up creating too many constructors with different combinations of
           parameters.
-        
+
         public class StudentBuilder {
-            public String name;
-            public int yeo;
-            public String batchName;
-            public int gradeYear;
-            public int psp;
-            public int id;
-        
-            public StudentBuilder(HelperBuilder builder) {
-                this.name = builder.name;
-                this.yeo = builder.yeo;
-                this.batchName = builder.batchName;
-                this.gradeYear = builder.gradeYear;
-                this.psp = builder.psp;
-                this.id = builder.id;
-            }
+            private String name;
+            private int yeo;
+            private int gradeYear;
+            private String batchName;
+            private int psp;
+            private int id;
+
+             public StudentBuiler(HelperBuilder builder) {
+                    this.name = builder.getName();
+                    this.yeo = builder.getYeo();
+                    this.gradeYear = builder.getGradeYear();
+                    this.batchName = builder.getBatchName();
+                    this.psp = builder.getPsp();
+                    this.id = builder.getId();
+                }
         }
 
         public class HelperBuilder {
-            public String name;
-            public int yeo;
-            public String batchName;
-            public int gradeYear;
-            public int psp;
-            public int id;
+            private String name;
+            private int yeo;
+            private int gradeYear;
+            private String batchName;
+            private int psp;
+            private int id;
             public HelperBuilder setName(String name) {
                 this.name = name;
                 return this;
             }
-        
+
             public HelperBuilder setYeo(int yeo) {
                 this.yeo = yeo;
                 return this;
             }
-        
+
             public HelperBuilder setBatchName(String batchName) {
                 this.batchName = batchName;
                 return this;
             }
-        
+
             public HelperBuilder setGradeYear(int gradeYear) {
                 this.gradeYear = gradeYear;
                 return this;
             }
-        
+
             public HelperBuilder setPsp(int psp) {
                 this.psp = psp;
                 return this;
             }
-        
+
             public HelperBuilder setId(int id) {
                 this.id = id;
                 return this;
             }
+            public String getName() {
+                    return name;
+                }
+            
+                public int getYeo() {
+                    return yeo;
+                }
+            
+                public int getGradeYear() {
+                    return gradeYear;
+                }
+            
+                public String getBatchName() {
+                    return batchName;
+                }
+            
+                public int getPsp() {
+                    return psp;
+                }
+            
+                public int getId() {
+                    return id;
+                }
             public void validate(){
                 if(name==null){
                     throw new nameException("name shouldn't be null");
@@ -101,78 +124,78 @@
                 this.validate();
                 StudentBuilder s= new StudentBuilder(this);
                 return s;
-        
+
             }
         }
-        
+
         public class gradeyearException extends RuntimeException{
             public gradeyearException() {
                 super();
             }
-        
+
             public gradeyearException(String message) {
                 super(message);
             }
-        
+
             public gradeyearException(String message, Throwable cause) {
                 super(message, cause);
             }
-        
+
             public gradeyearException(Throwable cause) {
                 super(cause);
             }
-        
+
             protected gradeyearException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
                 super(message, cause, enableSuppression, writableStackTrace);
             }
         }
-        
+
         public class nameException extends RuntimeException{
             public nameException() {
                 super();
             }
-        
+
             public nameException(String message) {
                 super(message);
             }
-        
+
             public nameException(String message, Throwable cause) {
                 super(message, cause);
             }
-        
+
             public nameException(Throwable cause) {
                 super(cause);
             }
-        
+
             protected nameException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
                 super(message, cause, enableSuppression, writableStackTrace);
             }
         }
-        
+
         package BuilderPattern;
-        
+
         public class yeoException extends RuntimeException{
             public yeoException() {
                 super();
             }
-        
+
             public yeoException(String message) {
                 super(message);
             }
-        
+
             public yeoException(String message, Throwable cause) {
                 super(message, cause);
             }
-        
+
             public yeoException(Throwable cause) {
                 super(cause);
             }
-        
+
             protected yeoException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
                 super(message, cause, enableSuppression, writableStackTrace);
             }
         }
-        
+
         public class ClientBuilder {
             public static void main(String[] args) {
                 StudentBuilder s = new HelperBuilder()
@@ -185,5 +208,5 @@
             }
         }
 
-        
+
 
