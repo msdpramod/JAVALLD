@@ -59,14 +59,15 @@
         }
     }
 
-    public class singletonClient {
+  public class singletonClient {
     public static void main(String[] args) {
         singleton s1= singleton.getInstance();
         singleton s3= singleton.getInstance();
         singleton s2= singleton.getInstance();
+        singleton s4= singleton.getInstance();
         s1.makeConnection();
         s2.makeConnection();
         s3.makeConnection();
+        s4.makeConnection();
     }
 }
-
