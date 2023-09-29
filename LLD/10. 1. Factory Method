@@ -1,1 +1,72 @@
+->Definition
+     Creational design pattern that provides an interface for creating objects in a superclass,
+     but allows subclasses to alter the type of objects that will be created.
+
+->Requirments:
+    We will create a Food Ordering System where Customers are able to order pizza, Biryani
+
+    public interface Dish {
+        public void prepare();
+        public void serve();
+    }
+
+    public class Biryani implements Dish{
+        @Override
+        public void prepare() {
+            System.out.println(" Preparing Biryani ");
+        }
+
+        @Override
+        public void serve() {
+            System.out.println(" Serving Biryani ");
+        }
+    }
+
+    public class pizza implements Dish{
+        @Override
+        public void prepare() {
+            System.out.println(" pizza is preparing ");
+        }
+
+        @Override
+        public void serve() {
+            System.out.println(" pizza is serving ");
+        }
+    }
+
+    public interface DishFactory {
+        Dish createDish();
+    }
+
+    public class ShahGouse implements DishFactory{
+        @Override
+        public Dish createDish() {
+            return new Biryani();
+        }
+    }
+
+    public class Dominos implements DishFactory{
+        @Override
+        public Dish createDish() {
+            return new pizza();
+        }
+    }
+    
+    public class ClientFactory {
+        public static void main(String[] args) {
+            DishFactory ShahGouse= new ShahGouse();
+            Dish chickenbiryani= ShahGouse.createDish();
+            chickenbiryani.prepare();
+            chickenbiryani.serve();
+    
+            DishFactory Dominos= new Dominos();
+            Dish pizza= Dominos.createDish();
+            pizza.prepare();
+            pizza.serve();
+    
+    
+        }
+    }
+
+
 
