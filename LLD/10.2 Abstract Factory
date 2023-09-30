@@ -1,6 +1,85 @@
 -> Definition:
       It provides an interface for creating families of related or dependent objects without specifying their concrete classes. 
-      In other words, it allows you to create groups of objects that are designed to work together, without worrying about the specific implementation details of those objects.
+      In other words, it allows you to create groups of objects that are designed to work together, without worrying about the specific
+      implementation details of those objects.
 
--> Why do we use Abstract Factory
+-> Why do we use Abstract Factory?
+      In summary, choose the Abstract Factory Pattern when you need to manage families of related objects, and choose the Factory Method Pattern
+      when you need to delegate object creation to subclasses with different implementations.
+
+->Implementation:
+     // Abstract CPU class
+      interface CPU {
+          void getSpecification();
+      }
       
+      // Abstract RAM class
+     public interface RAM {
+          public void getSpecification();
+      }
+
+      // Concrete Intel CPU
+      class IntelCPU implements CPU {
+          @Override
+           public void getSpecification() {
+              System.out.println("Intel Cpu- high performance");
+           }
+      }
+      
+      // Concrete Kingston RAM
+      class KingstonRAM implements RAM {
+          @Override
+                 public void getSpecification() {
+              System.out.println("Kingston RAM 8 GB");
+          }
+      }
+
+      
+      // Abstract Factory interface
+      interface ComputerComponentFactory {
+          CPU createCPU();
+          RAM createRAM();
+      }
+
+      // Concrete factory for Intel components
+      class IntelComponentFactory implements ComputerComponentFactory {
+          @Override
+          public CPU createCPU() {
+              return new IntelCPU();
+          }
+      
+          @Override
+          public RAM createRAM() {
+              return new KingstonRAM(); // Intel CPUs work with Kingston RAM in this example
+          }
+      }
+      
+      // Concrete factory for Kingston components
+      class KingstonComponentFactory implements ComputerComponentFactory {
+          @Override
+          public CPU createCPU() {
+              return new IntelCPU(); // Kingston RAM works with Intel CPUs in this example
+          }
+      
+          @Override
+          public RAM createRAM() {
+              return new KingstonRAM();
+          }
+      }
+
+      public class ClientAF {
+          public static void main(String[] args) {
+              ComputerComponetFactory ccf= new IntelFactory();
+              CPU c1= ccf.createCPU();
+              RAM r1= ccf.createRAM();
+              c1.getSpecification();
+              r1.getSpecification();
+      
+              ComputerComponetFactory ccf2= new kingstonFactory();
+              CPU c2= ccf2.createCPU();;
+              RAM r2= ccf2.createRAM();
+              c2.getSpecification();
+              r2.getSpecification();
+          }
+      }
+
