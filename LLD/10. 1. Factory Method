@@ -2,71 +2,95 @@
      Creational design pattern that provides an interface for creating objects in a superclass,
      but allows subclasses to alter the type of objects that will be created.
 
-->Requirments:
-    We will create a Food Ordering System where Customers are able to order pizza, Biryani
+-> Why do we use the Factory Method?
+     To object creation from the client code. Allowing subclasses to change object creation. Easily adding new object types.
 
-    public interface Dish {
-        public void prepare();
-        public void serve();
-    }
+-> Let's learn through the following example:
+     // Interface for mobiles
+     public interface Mobile {
+         public void getMobile();
+         public void color();
+     }
 
-    public class Biryani implements Dish{
-        @Override
-        public void prepare() {
-            System.out.println(" Preparing Biryani ");
-        }
+     // Concrete product class for iPhone
+     public class Iphone implements Mobile{
+         @Override
+         public void getMobile() {
+             System.out.println("I'm an iphone");
+         }
+         @Override
+         public void color() {
+             System.out.println("Black");
+         }
+     }
 
-        @Override
-        public void serve() {
-            System.out.println(" Serving Biryani ");
-        }
-    }
+     // Concrete product class for OnePlus
+     public class OnePlus implements Mobile{
+         @Override
+         public void getMobile() {
+             System.out.println("I'm One Plus");
+         }
+     
+         @Override
+         public void color() {
+             System.out.println("white");
+         }
+     }
 
-    public class pizza implements Dish{
-        @Override
-        public void prepare() {
-            System.out.println(" pizza is preparing ");
-        }
+     // Concrete product class for Nokia
+     public class Nokia implements Mobile{
+         @Override
+         public void getMobile() {
+             System.out.println("I'm Nokia phone");
+         }
+     
+         @Override
+         public void color() {
+             System.out.println("red");
+         }
+     }
 
-        @Override
-        public void serve() {
-            System.out.println(" pizza is serving ");
-        }
-    }
+     // Factory interface for creating mobiles
+     public interface Factory {
+         public Mobile createMobile();
+     }
 
-    public interface DishFactory {
-        Dish createDish();
-    }
+     // Factory for creating iPhones
+     public class IphoneFactory implements Factory{
+         @Override
+         public Mobile createMobile() {
+             return new Iphone();
+         }
+     }
 
-    public class ShahGouse implements DishFactory{
-        @Override
-        public Dish createDish() {
-            return new Biryani();
-        }
-    }
+     // Factory for creating OnePlus phones
+     public class OnePlusFactory implements Factory{
+         @Override
+         public Mobile createMobile() {
+             return new OnePlus();
+         }
+     }
 
-    public class Dominos implements DishFactory{
-        @Override
-        public Dish createDish() {
-            return new pizza();
-        }
-    }
-    
-    public class ClientFactory {
-        public static void main(String[] args) {
-            DishFactory ShahGouse= new ShahGouse();
-            Dish chickenbiryani= ShahGouse.createDish();
-            chickenbiryani.prepare();
-            chickenbiryani.serve();
-    
-            DishFactory Dominos= new Dominos();
-            Dish pizza= Dominos.createDish();
-            pizza.prepare();
-            pizza.serve();
-    
-    
-        }
-    }
+     Client code to demonstrate the factory pattern
+     public class Client {
+         public static void main(String[] args) {
+             Factory iphoneFactory = new IphoneFactory();   // Create an iPhone factory
+             Mobile iphone = iphoneFactory.createMobile();   // Create an iPhone using the factory
+             iphone.getMobile();                            // Print iPhone type
+             iphone.color();                                // Print iPhone color
+     
+             Factory oneplusFactory = new OnePlusFactory(); // Create a OnePlus factory
+             Mobile onePlus = oneplusFactory.createMobile(); // Create a OnePlus phone using the factory
+             onePlus.getMobile();                           // Print OnePlus type
+             onePlus.color();                               // Print OnePlus color
+         }
+     }
+
+
+
+
+
+
 
 
 
