@@ -1,0 +1,5 @@
+-> Definition:
+      It provides an interface for creating families of related or dependent objects without specifying their concrete classes. 
+      In other words, it allows you to create groups of objects that are designed to work together, without worrying about the specific implementation details of those objects.
+
+-> Why we use Fa
