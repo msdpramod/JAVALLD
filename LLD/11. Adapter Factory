@@ -1,0 +1,9 @@
+-> Definition:
+      Ensures bifurcation between codebase and 3rd party components/libraries/Systems and keeps codebase loose coupled so that it
+      is easily maintainable and upgradable. 
+
+-> How to use?
+      Your codebase should never give access directly to 3rd party resources. You should always use an interface.
+
+-> I know you couldn't able to understand. Let me explain with the iPhone adapter. In the USA ports of switch is rectangular
+   in India it is circular. So if you buy an adapter from India and you want to use it in the USA you should have a converter adapter.
