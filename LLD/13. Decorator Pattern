@@ -11,6 +11,10 @@
       and when you need to create multiple combinations of behaviors without creating a complex hierarchy of subclasses.
 
 -> Implementation:
+      In this example, you have created a series of IceCream classes that can be decorated with additional features 
+      (ChocolateChip, ChocolateScoop, VanillaScoop, etc.). The decorators add both cost and description modifications to the base IceCream objects. The Client class
+      demonstrates how you can chain these decorators to create a customized IceCream object with a calculated cost and description based on the selected toppings and cone.
+
       public interface IceCream {
         public int getCost();
         public String getDescription();
