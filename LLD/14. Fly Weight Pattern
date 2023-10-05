@@ -1,2 +1,8 @@
 -> Definition
+    It is a Structural design pattern we bifurcation of class into  attributes to the related classes.
+
+->Why do we use it?
+    Consider the game 'PUBG' it consists of 10 players with 4 guns and bullets. Each person has 300 bullets 
+    at the beginning of the game and we can collect the bullets in between the game if we kill others. 
+    consider class 
     
