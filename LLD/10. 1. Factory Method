@@ -1,1 +1,96 @@
+->Definition
+     Creational design pattern that provides an interface for creating objects in a superclass,
+     but allows subclasses to alter the type of objects that will be created.
+
+-> Why do we use the Factory Method?
+     To object creation from the client code. Allowing subclasses to change object creation. Easily adding new object types.
+
+-> Let's learn through the following example:
+     // Interface for mobiles
+     public interface Mobile {
+         public void getMobile();
+         public void color();
+     }
+
+     // Concrete product class for iPhone
+     public class Iphone implements Mobile{
+         @Override
+         public void getMobile() {
+             System.out.println("I'm an iphone");
+         }
+         @Override
+         public void color() {
+             System.out.println("Black");
+         }
+     }
+
+     // Concrete product class for OnePlus
+     public class OnePlus implements Mobile{
+         @Override
+         public void getMobile() {
+             System.out.println("I'm One Plus");
+         }
+     
+         @Override
+         public void color() {
+             System.out.println("white");
+         }
+     }
+
+     // Concrete product class for Nokia
+     public class Nokia implements Mobile{
+         @Override
+         public void getMobile() {
+             System.out.println("I'm Nokia phone");
+         }
+     
+         @Override
+         public void color() {
+             System.out.println("red");
+         }
+     }
+
+     // Factory interface for creating mobiles
+     public interface Factory {
+         public Mobile createMobile();
+     }
+
+     // Factory for creating iPhones
+     public class IphoneFactory implements Factory{
+         @Override
+         public Mobile createMobile() {
+             return new Iphone();
+         }
+     }
+
+     // Factory for creating OnePlus phones
+     public class OnePlusFactory implements Factory{
+         @Override
+         public Mobile createMobile() {
+             return new OnePlus();
+         }
+     }
+
+     Client code to demonstrate the factory pattern
+     public class Client {
+         public static void main(String[] args) {
+             Factory iphoneFactory = new IphoneFactory();   // Create an iPhone factory
+             Mobile iphone = iphoneFactory.createMobile();   // Create an iPhone using the factory
+             iphone.getMobile();                            // Print iPhone type
+             iphone.color();                                // Print iPhone color
+     
+             Factory oneplusFactory = new OnePlusFactory(); // Create a OnePlus factory
+             Mobile onePlus = oneplusFactory.createMobile(); // Create a OnePlus phone using the factory
+             onePlus.getMobile();                           // Print OnePlus type
+             onePlus.color();                               // Print OnePlus color
+         }
+     }
+
+
+
+
+
+
+
+
 

@@ -1,0 +1,156 @@
+->Definition:
+      The Decorator pattern is a structural design pattern in Java (and other object-oriented languages) that allows you to add behavior to individual objects,
+      statically or dynamically, without affecting the behavior of other objects from the same class. It is one of the Gang of Four (GoF) design patterns.
+
+      In the Decorator pattern, you create a set of decorator classes that are used to wrap concrete components. Each decorator adds its own behavior while forwarding
+      requests to the underlying component. This allows you to build a flexible and extensible system where you can combine and compose different decorators to create 
+      -new variations of an object.
+
+-> When to use?
+      you should use the Decorator pattern when you want to add responsibilities to objects in a flexible and extensible way, without modifying their core classes, 
+      and when you need to create multiple combinations of behaviors without creating a complex hierarchy of subclasses.
+
+-> Implementation:
+      In this example, you have created a series of IceCream classes that can be decorated with additional features 
+      (ChocolateChip, ChocolateScoop, VanillaScoop, etc.). The decorators add both cost and description modifications to the base IceCream objects. The Client class
+      demonstrates how you can chain these decorators to create a customized IceCream object with a calculated cost and description based on the selected toppings and cone.
+
+      public interface IceCream {
+        public int getCost();
+        public String getDescription();
+     }
+
+    public class ChocolateChip implements IceCream{
+        IceCream iceCream;
+    
+        public ChocolateChip(IceCream iceCream) {
+            this.iceCream = iceCream;
+        }
+    
+        @Override
+        public int getCost() {
+            return iceCream.getCost()+40;
+        }
+    
+        @Override
+        public String getDescription() {
+            return iceCream.getDescription()+"Chocolate Chip";
+        }
+    }
+
+    public class ChocolateScoop implements IceCream{
+        IceCream iceCream;
+    
+        public ChocolateScoop(IceCream iceCream) {
+            this.iceCream = iceCream;
+        }
+    
+        @Override
+        public int getCost() {
+            return iceCream.getCost()+30;
+        }
+    
+        @Override
+        public String getDescription() {
+            return iceCream.getDescription()+"Chocolate Scoop";
+        }
+    }
+
+    public class VanilaScoop implements IceCream{
+        IceCream iceCream;
+    
+        public VanilaScoop(IceCream iceCream) {
+            this.iceCream = iceCream;
+        }
+    
+        @Override
+        public int getCost() {
+            return iceCream.getCost()+15;
+        }
+    
+        @Override
+        public String getDescription() {
+            return iceCream.getDescription()+"Vanila Scoop";
+        }
+    }
+    
+    public class ChocolateCone implements IceCream{
+        IceCream iceCream;
+    
+        public ChocolateCone() {
+        }
+    
+        public ChocolateCone(IceCream iceCream) {
+            this.iceCream = iceCream;
+        }
+    
+        @Override
+        public int getCost() {
+            return (iceCream==null)?20: iceCream.getCost()+20;
+        }
+    
+        @Override
+        public String getDescription() {
+            return  (iceCream==null)?"Chocolate Cone":"Chocolate Cone"+getDescription();
+        }
+    }
+
+    public class OrangeCone implements IceCream{
+        IceCream iceCream;
+    
+        public OrangeCone() {
+        }
+    
+        public OrangeCone(IceCream iceCream) {
+            this.iceCream = iceCream;
+        }
+    
+        @Override
+        public int getCost() {
+            return (iceCream==null)?18: iceCream.getCost()+18;
+        }
+    
+        @Override
+        public String getDescription() {
+            return (iceCream==null)? "Orange Cone": "Orange Cone"+getDescription();
+        }
+    }
+
+    public class VanillaCone implements IceCream{
+        IceCream cream;
+    
+        public VanillaCone(IceCream cream) {
+            this.cream = cream;
+        }
+    
+        public VanilaCone() {
+        }
+    
+        @Override
+        public int getCost() {
+            return (cream==null)?15:getCost()+15;
+        }
+    
+        @Override
+        public String getDescription() {
+            return (cream==null)?"Vanilla Cone": "Vanilla Cone"+getDescription();
+        }
+    }
+
+    public class Client {
+    public static void main(String[] args) {
+        IceCream iceCream= new ChocolateChip( new ChocolateScoop(
+                                                    new VanilaScoop(
+                                                        new ChocolateScoop(
+                                                                new VanilaScoop(
+                                                                        new ChocolateCone( ))))));
+        System.out.println(iceCream.getCost());
+        System.out.println(iceCream.getDescription());
+    }
+}
+
+
+
+
+
+

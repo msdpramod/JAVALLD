@@ -1,0 +1,71 @@
+-> Definition:
+      It gives a more simplified structure or view of the complex environment.
+
+-> When to use?
+      Overall, the Facade pattern is valuable whenever you need to hide complexity, simplify interactions, improve maintainability, 
+      or create a more user-friendly interface to a subsystem, whether it's for external libraries, legacy systems, or even within your own codebase.
+
+-> Implementation:
+      // Subsystem 1: Audio Player
+      class AudioPlayer {
+          void play() {
+              System.out.println("Playing audio");
+          }
+      
+          void stop() {
+              System.out.println("Stopping audio");
+          }
+      }
+      
+      // Subsystem 2: Video Player
+      class VideoPlayer {
+          void play() {
+              System.out.println("Playing video");
+          }
+      
+          void stop() {
+              System.out.println("Stopping video");
+          }
+      }
+      
+      // Facade
+      class MultimediaPlayerFacade {
+          private AudioPlayer audioPlayer;
+          private VideoPlayer videoPlayer;
+      
+          public MultimediaPlayerFacade() {
+              audioPlayer = new AudioPlayer();
+              videoPlayer = new VideoPlayer();
+          }
+      
+          void playAudio() {
+              audioPlayer.play();
+          }
+      
+          void playVideo() {
+              videoPlayer.play();
+          }
+      
+          void stopAudio() {
+              audioPlayer.stop();
+          }
+      
+          void stopVideo() {
+              videoPlayer.stop();
+          }
+      }
+      
+      // Client code
+      public class Main {
+          public static void main(String[] args) {
+              MultimediaPlayerFacade player = new MultimediaPlayerFacade();
+      
+              System.out.println("Playing multimedia...");
+              player.playAudio();
+              player.playVideo();
+      
+              System.out.println("\nStopping multimedia...");
+              player.stopAudio();
+              player.stopVideo();
+          }
+      }
