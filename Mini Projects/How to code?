@@ -1,0 +1,29 @@
+->We need to maintain proper  Project structure. It is of three types
+    * Layered architecture
+    * Domain driven Design
+    * MVC
+
+-> Layered Architecture
+      we need create packages
+        * Contoller layer - gets request from front end -> Authentication | Validation
+        * Service layer -> Business logic
+        * Repository or DAO ( Data access object) -> Establish all types of things to do with DB
+        * Model -> Enties
+
+-> Domain Architecture
+      Package per entity
+      Ex: Movie
+            * Movie Controller
+            * Movie
+            * Movie Repository
+            * Movie Service
+          User
+            * User Controller
+            * User
+            * User Repository
+            * User Service
+
+-> MVC (Model View Controller) :
+        [DB]   [UI]   [Backend]
+
+      Controller is a class responsible for opening API's 
