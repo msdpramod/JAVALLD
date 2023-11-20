@@ -1,0 +1,75 @@
+-> Consider a class Bird consists of Name, No of wings and Color. It consist of three interfaces isFlyable, isSingable and isDancable.
+  The Bird class objects which are sparrow, crow , Pegion and Penguin implements one of interface to override the method in it.
+
+->Requirement: Pegion and crow can fly exact same way and penguin and sparrow dance exactly same way.
+  if multiple objects like sparrow , crow implements interface then it leads to redundacy or dulicacy.  
+
+-> Dependency Inversion principle says " Classes should never dependent on each other directly instead they should dependent via interfaces".
+
+-> // Abstraction: IBirdBehavior interface
+interface IBirdBehavior {
+    void fly();
+    void sing();
+}
+
+// Low-level module: Sparrow implements IBirdBehavior
+      class Sparrow implements IBirdBehavior {
+          @Override
+          public void fly() {
+              System.out.println("Sparrow can fly.");
+          }
+      
+          @Override
+          public void sing() {
+              System.out.println("Sparrow sings a melodic song.");
+          }
+      }
+      
+      // Low-level module: Penguin implements IBirdBehavior
+      class Penguin implements IBirdBehavior {
+          @Override
+          public void fly() {
+              System.out.println("Penguin cannot fly.");
+          }
+      
+          @Override
+          public void sing() {
+              System.out.println("Penguin makes a trumpeting sound.");
+          }
+      }
+      
+      // High-level module: Bird depends on IBirdBehavior
+      class Bird {
+          private final IBirdBehavior behavior;
+      
+          public Bird(IBirdBehavior behavior) {
+              this.behavior = behavior;
+          }
+      
+          public void performBehavior() {
+              behavior.fly();
+              behavior.sing();
+          }
+      }
+      
+      public class BirdExample {
+          public static void main(String[] args) {
+              // Create instances of Sparrow and Penguin
+              IBirdBehavior sparrowBehavior = new Sparrow();
+              IBirdBehavior penguinBehavior = new Penguin();
+      
+              // Create Bird instances with different behaviors
+              Bird sparrowBird = new Bird(sparrowBehavior);
+              Bird penguinBird = new Bird(penguinBehavior);
+      
+              // Perform behaviors of the birds
+              System.out.println("Sparrow's behavior:");
+              sparrowBird.performBehavior();
+      
+              System.out.println("\nPenguin's behavior:");
+              penguinBird.performBehavior();
+          }
+      }
+ 
+  
+    

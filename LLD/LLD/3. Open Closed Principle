@@ -1,0 +1,80 @@
+-> Definition
+      Software entities (classes, modules, functions, etc.) should be open for extension but closed for modification.
+
+Open Closed says " Hey hi I'm open to extending like FlyingBird | SwimingBird in Single Responsibility Principle but 
+I don't to modify myself".
+
+Let's understand from the Single Responsibility Principle there are two behaviors if I want to add one more behavior without
+modifying code, Let's see Swiming bird
+
+  -> // Bird Class
+             public class Bird {
+                private String name;
+                private String color;
+            
+                public Bird(String name, String color) {
+                    this.name = name;
+                    this.color = color;
+                }
+                public  void display(){
+                    System.out.println("name is "+name);
+                    System.out.println("color is "+color);
+                }
+                public  String getName(){
+                    return name;
+                }
+            }
+
+->   // Flying Bird class
+            public class FlyingBird extends Bird{
+                public FlyingBird(String name, String color) {
+                    super(name, color);
+                }
+                public void fly(){
+                    System.out.println(getName()+" is Flying");
+                }
+              }
+
+-> // Singing Bird Class
+            public class SingingBird extends Bird{
+                public SingingBird(String name, String color) {
+                    super(name, color);
+                }
+                public void sing(){
+                    System.out.println(getName()+" is singing");
+                }
+            }
+
+-> Swiming Bird Class
+            public class SwimingBird extends Bird{
+                public SwimingBird(String name, String color) {
+                    super(name, color);
+                }
+                public void swim(){
+                    System.out.println(getName()+" is Swiming");
+                }
+            }
+
+
+-> public class Client {
+            public static void main(String[] args) {
+                FlyingBird eagle = new FlyingBird("Eagle", "Brown");
+                SingingBird canary = new SingingBird("Canary", "Yellow");
+                SwimingBird Penguin = new SwimingBird("Penguin"," White and black ");   
+
+                // Display information about the birds
+                System.out.println("Information about birds:");
+                eagle.display();
+                canary.display();
+                Penguin.display();
+        
+                // Perform specific actions
+                System.out.println("\nBird actions:");
+                eagle.fly();
+                canary.sing();
+                Penguin.swim();
+            }
+        }
+
+
+
